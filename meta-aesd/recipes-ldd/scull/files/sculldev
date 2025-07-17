@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Init script to load scull module at startup
+case $1 in
+    start)
+        /etc/lddmodules/scull_load.sh
+        echo "Loading scull.ko: OK"
+        ;;
+
+    stop)
+        /etc/lldmodules/scull_unload.sh
+        echo "Unloading scull.ko: OK"
+        ;;
+
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+esac

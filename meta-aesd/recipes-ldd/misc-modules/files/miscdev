@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Startup/shutdown script to load/unload kernel modules
+case $1 in
+    start)
+        /etc/lddmodules/module_load.sh faulty
+        echo "Loading faulty.ko: OK"
+        modprobe hello
+        echo "Loading hello.ko: OK"
+        ;;
+
+    stop)
+        modprobe -r hello
+        echo "Unloading hello.ko: OK"
+        /etc/lldmodules/module_unload.sh faulty
+        echo "Unloading faulty.ko: OK"
+        ;;
+
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+esac
