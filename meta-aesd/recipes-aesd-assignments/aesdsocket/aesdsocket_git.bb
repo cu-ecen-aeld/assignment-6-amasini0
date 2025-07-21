@@ -10,17 +10,13 @@ SRC_URI = "git://git@github.com/cu-ecen-aeld/assignments-3-and-later-amasini0.gi
 
 PV = "1.0+git${SRCPV}"
 # DONE: set to reference a specific commit hash in your assignment repo
-SRCREV = "68bcacb1c3d32e84782e92c85411307f87f95ed5"
+SRCREV = "8ba1bf715c41cf8fbbdda74547e7b08afd2d5f1c"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
 # We reference the "server" directory here to build from the "server" directory
 # in your assignments repo
 S = "${WORKDIR}/git/server"
-
-# DONE: Add the aesdsocket application and any other files you need to install
-# See https://git.yoctoproject.org/poky/plain/meta/conf/bitbake.conf?h=kirkstone
-FILES:${PN} += "${bindir}/aesdsocket ${sysconfdir}/init.d/aesdsocketd"
 
 # DONE: Add the aesdsocket application startup script for starting it automatically
 # during startup
@@ -30,6 +26,7 @@ INITSCRIPT_PARAMS = "defaults 99"
 
 # TODO: customize these as necessary for any libraries you need for your application
 # (and remove comment)
+TARGET_CFLAGS += "-DUSE_AESD_CHAR_DEVICE"
 #TARGET_LDFLAGS += "-pthread -lrt"
 RDEPENDS:${PN} += "libgcc"
 
@@ -54,3 +51,7 @@ do_install () {
     install -d ${D}${sysconfdir}/init.d/
     install -m 0755 ${S}/aesdsocket-start-stop ${D}${sysconfdir}/init.d/aesdsocketd
 }
+
+# DONE: Add the aesdsocket application and any other files you need to install
+# See https://git.yoctoproject.org/poky/plain/meta/conf/bitbake.conf?h=kirkstone
+FILES:${PN} += "${bindir}/aesdsocket ${sysconfdir}/init.d/aesdsocketd"

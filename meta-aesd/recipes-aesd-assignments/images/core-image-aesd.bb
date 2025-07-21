@@ -1,5 +1,5 @@
 inherit core-image
-CORE_IMAGE_EXTRA_INSTALL += "scull misc-modules"
+CORE_IMAGE_EXTRA_INSTALL += "ldd3-modules"
 CORE_IMAGE_EXTRA_INSTALL += "aesd-assignments"
 CORE_IMAGE_EXTRA_INSTALL += "openssh"
 
