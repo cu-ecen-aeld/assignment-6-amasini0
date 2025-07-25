@@ -1,7 +1,6 @@
 inherit packagegroup
 
 DESCRIPTION = "Packages created for ECEN/AELD course assignments"
-LICENSE = "MIT"
 
 # Package groups
 PACKAGES = "\
@@ -12,6 +11,7 @@ PACKAGES = "\
 # Packages in aesd-assignments group
 RDEPENDS:${PN} = "\
     aesdsocket \
+    aesdchar \
 "
 
 # Packages in ldd3 group

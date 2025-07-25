@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Init script to load aesdchar module at startup
+case $1 in
+    start)
+        /etc/aesdchar.d/aesdchar_load
+        echo "Loading aesdchar.ko: OK"
+        ;;
+
+    stop)
+        /etc/aesdchar.d/aesdchar_unload
+        echo "Unloading aesdchar.ko: OK"
+        ;;
+
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+esac

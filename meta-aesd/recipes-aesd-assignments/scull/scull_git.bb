@@ -11,7 +11,7 @@ inherit update-rc.d
 # The following license files were not able to be identified and are
 # represented as "Unknown" below, you will need to check them yourself:
 #   LICENSE
-LICENSE = "Unknown"
+LICENSE = "OREILLY_LDD_LICENSE"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f098732a73b5f6f3430472f5b094ffdb"
 
 SRC_URI = "\
@@ -28,7 +28,7 @@ SRCREV = "677b5cfdddd42b61cb5850e4e3c220af5db63e91"
 # Startup/shutdown scripts
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME:${PN} += "sculldev"
-INITSCRIPT_PARAMS += "defaults 98"
+INITSCRIPT_PARAMS = "defaults 98"
 
 # Package build/install
 S = "${WORKDIR}/git"
