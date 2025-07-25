@@ -17,7 +17,7 @@ SRC_URI = "\
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "a06929268ec7e56912fb4967ed1a68e92160119f"
+SRCREV = "37031f0a0031c9122b8775e5ae25945a9be00af7"
 
 # Startup/shutdown scripts
 INITSCRIPT_PACKAGES = "${PN}"
